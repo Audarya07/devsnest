@@ -1,0 +1,15 @@
+.sender {
+    margin-left: 50%;
+    border: solid 1px violet;
+    text-align: right;
+}
+
+#receiver {
+    background-color: peru;
+    margin-right: 50%;
+}
+
+#mc2 {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
