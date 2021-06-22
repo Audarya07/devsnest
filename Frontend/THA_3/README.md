@@ -1,4 +1,3 @@
-## Clock  
+## Resume  
 
-![Clock](.clock.png)  
-
+![Resume](.resume.png)
