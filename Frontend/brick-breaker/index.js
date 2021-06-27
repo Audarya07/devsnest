@@ -7,6 +7,11 @@ ctx.lineWidth = 3;
 const IMG = new Image();
 IMG.src = "./images/main.png";
 
+//LIVES
+let LIFE = 3;
+
+//#######################################################
+
 // PADDLE CONSTANTS
 const PADDLE_WIDTH = 100;
 const PADDLE_HEIGHT = 20; 
@@ -59,9 +64,11 @@ function movePaddle(){
     }
 }
 
+//#######################################################
+
+
 // BALL CONSTANTS
 const BALL_RAD = 8;
-
 
 // BALL VARIABLES
 const ball = {
@@ -77,10 +84,65 @@ const ball = {
 function drawBall(){
     ctx.beginPath();
     ctx.arc(ball.x, ball.y, ball.radius , 0, 2*Math.PI);
-    ctx.fillStyle = "brown";
+    ctx.fillStyle = "orange";
     ctx.fill();
+    ctx.strokeStyle = "blue";
     ctx.stroke();
+    ctx.closePath();
 }
+
+// MOVE BALL
+function moveBall(){
+    ball.x += ball.dx;
+    ball.y += ball.dy;
+}
+
+// BALL AND WALL COLLISION
+function ballWallCollision(){
+    // collides right wall
+    if(ball.x +  ball.radius > cnvs.width){
+        ball.dx = -ball.dx;
+    }
+    // collides top wall
+    if(ball.y - ball.radius < 0){
+        ball.dy = -ball.dy;
+    }
+    // collides left wall
+    if(ball.x - ball.radius < 0){
+        ball.dx = -ball.dx;
+    }
+    // collides bottom wall
+    if(ball.y + ball.radius > cnvs.height){
+        
+        for( ; LIFE >= 0; LIFE--){
+            resetBall();
+        }
+    }
+}
+
+function resetBall(){
+    ball.x = cnvs.width/2;
+    ball.y = paddle.y - ball.radius;
+    ball.dy = -3;
+    ball.dx = (Math.random()*2 - 1) * 3;
+}
+
+//#######################################################
+ 
+// BALL PADDLE COLLISION
+function ballPaddleCollision(){
+    if(ball.y + ball.radius > paddle.y && ball.y < paddle.y + paddle.height && ball.x > paddle.x && ball.x < paddle.x + paddle.width){
+        let collidePoint = ball.x - (paddle.x + paddle.width/2);
+        collidePoint = collidePoint/(paddle.width/2);
+        let angle = collidePoint * (Math.PI/3);
+        // let angle = collidePoint * (Math.PI/3)
+        ball.dx = ball.speed * Math.sin(angle);
+        ball.dy = -ball.speed * Math.cos(angle);
+    }
+}
+
+
+//#######################################################
 
 // ALL DRAWINGS
 function draw(){
@@ -91,6 +153,9 @@ function draw(){
 // UPDATE GAME
 function update(){
     movePaddle();
+    moveBall();
+    ballWallCollision();
+    ballPaddleCollision();
 }
 
 // MAIN LOOP
