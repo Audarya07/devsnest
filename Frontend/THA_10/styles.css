@@ -1,67 +1,89 @@
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
-    height: 100vh;
+    background: rgb(36, 34, 34);
+    color: #999;
+    overflow: hidden;
 }
 
-.back img {
-    max-width:90%; 
-    display: block; 
-    height: auto 
+.myImg {
+    width: 278px;
+    height: 163px;
+    border-radius: 2px;
 }
 
-.container {
-    height: 100vh;
-    width: 100vw;
-    /* background-color: rgb(202, 205, 50); */
-    background: #bdc3c7;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
+.statsCase {
+    text-align: center;
+    margin-top: 1%;
+    font-size: x-large;
 }
 
-.chances {
-    display: flex;
-    justify-content: space-around;
-    width: 90%;
+.stats {
+    color: orangered;
+    letter-spacing: 4px;
+  }
+
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1200px;
+    height: 550px;
+    margin-top: -260px;
+    margin-left: -600px;
 }
 
-.cards {
+.grid {
     display: grid;
-    width: 90%;
-    height: 80%;
-    /* background-color: burlywood; */
-    background: rgba( 255, 255, 255, 0.40 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 0.0px );
--webkit-backdrop-filter: blur( 0.0px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
     grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 25px 25px;
+}
+
+.cardCase {
+    width: 280px;
+    height: 165px;
+    position: relative;
+    perspective: 1000px;
+    border-radius: 4px;
+    
 }
 
 .card {
     width: 100%;
     height: 100%;
-    border-radius: 5%;
-    /* background-color: lightskyblue; */
-    background: rgba( 255, 255, 255, 0.40 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 0.0px );
--webkit-backdrop-filter: blur( 0.0px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 6px;
+    box-shadow: -3px 5px 5px 0px rgba(69,59,59,0.75);
 }
 
-.card:hover {
-    cursor: pointer;
-    background-color: rgb(181, 181, 207);
+.card div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    background: rgb(46, 40, 40);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: 280px 165px;
+    background-image: url(images/front.png)
 }
+
+.card .back {
+    transform: rotateY(180deg);
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
