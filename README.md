@@ -19,6 +19,4 @@ Contains projects created from May 2021
 8. [THA_9 Seat Booking](Frontend/THA_9/)	
 9. [THA_10 Memory Game](Frontend/THA_10/)
 
-## Brick Breaker Game:  
-[Brick Breaker](Frontend/brick-breaker/)	
 
