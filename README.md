@@ -18,5 +18,5 @@ Contains projects created from May 2021
 7. [THA_8 CSS Challenge](Frontend/THA_8/)
 8. [THA_9 Seat Booking](Frontend/THA_9/)	
 9. [THA_10 Memory Game](Frontend/THA_10/)
-
-
+10. [THA_11 Quiz Game](Frontend/THA_11/)
+11. [THA_12 ToDo List](Frontend/THA_12/)
