@@ -1,0 +1,26 @@
+.card {
+    background-color: rgb(104, 161, 17);
+    border-radius: 5px;
+    margin: 20px;
+    padding: 5px;
+    width: 500px;
+}
+
+.header h1 {
+    display: inline-block;
+    margin: 10px;
+}
+
+.header button{
+    float: right;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.header button:hover{
+    color: white;
+    background-color: orangered;
+}
