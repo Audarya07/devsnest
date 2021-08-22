@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.App {
+    text-align: center;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    /* justify-content: space-around; */
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+ul {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.App nav li a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.App nav li a:hover {
+    color: black;
+}
+
+.App li {
+    background-color: #aaa;
+    padding:15px;
+    width: 140px;
+    margin: 10px 100px;
+    list-style-type: none;
+}
+
+.App button {
+    padding: 10px 15px;
+    font-size: 4vmin;
+    margin: 10px;
+    cursor: pointer;
+}
