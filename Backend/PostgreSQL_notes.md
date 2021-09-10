@@ -1,19 +1,20 @@
 #### PostgreSQL Notes  
 
-**IN** 		- Returns true if a value matches any value in the list
-**BETWEEN** 	- Return true if a value is between a range of values ex. BETWEEN 3 AND 5
-**LIKE**		- Return true if a value matches a pattern ex. LIKE 'Aud%' means match string starting with 'Aud'.
-**ILIKE**		- Same as LIKE but case insensitive pattern matching.
-**OFFSET** 		- Skip a number of rows before returning the resultset 
-**LIMIT**		- To constrain the number of rows returned by a query (not a SQl standard)
-**FETCH**		- Same as LIMIT and it a SQL standard. Syntax -> FETCH {FIRST|NEXT} row_cnt {ROW|ROWS} ONLY
-**LEFT(s, n)** 	- Extracts first n characters from s 
-**ALL**		- We can use the word ALL to allow >= or > or < or <= to act over a list ex. on result of select subquery 
+* **IN** 		- Returns true if a value matches any value in the list  
+* **BETWEEN** 	- Return true if a value is between a range of values ex. BETWEEN 3 AND 5  
+* **LIKE**		- Return true if a value matches a pattern ex. LIKE 'Aud%' means match string starting with 'Aud'.  
+* **ILIKE**		- Same as LIKE but case insensitive pattern matching.  
+* **OFFSET** 	- Skip a number of rows before returning the resultset.  
+* **LIMIT**		- To constrain the number of rows returned by a query (not a SQl standard).  
+* **FETCH**		- Same as LIMIT and it a SQL standard. Syntax --> `FETCH {FIRST|NEXT} row_cnt {ROW|ROWS} ONLY`  
+* **LEFT(s, n)** 	- Extracts first n characters from s.  
+* **ALL**		- We can use the word ALL to allow >= or > or < or <= to act over a list ex. on result of select subquery.  
 
-**ORDER BY**	- Sort thr column in ASC or DESC order
-**GROUP BY**	- Functions such as SUM and COUNT are applied to groups of items sharing values.ex."GROUP BY continent" ,the result is only one row for each different value of continent. All the other columns must be "aggregated" by one of SUM, COUNT etc.
-**WHERE**		- filters the rows before aggregation operation
-**HAVING**		- filters after the agregation
+* **ORDER BY**	- Sort thr column in ASC or DESC order.  
+* **GROUP BY**	- Functions such as SUM and COUNT are applied to groups of items sharing values.ex."GROUP BY continent" ,the result is only one row for each different value of continent. All the other columns must be "aggregated" by one of SUM, COUNT etc.  
+
+* **WHERE**		- filters the rows before aggregation operation.  
+* **HAVING**	- filters after the agregation.  
 
 ------------------------------------------------------------------------------------------
 
