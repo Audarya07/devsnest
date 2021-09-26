@@ -4,6 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const { redisClient, RedisStore, session } = require("./database/redis");
+
+var passport = require("passport");
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -19,8 +23,24 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Configure session middleware
+app.use(session({
+  store: new RedisStore({ client: redisClient }),
+  secret: 'secret$%^134',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+      secure: false, // if true only transmit cookie over https
+      httpOnly: false, // if true prevent client side JS from reading the cookie 
+      maxAge: 1000 * 60 // session max age in miliseconds
+  }
+}));
+app.use(passport.initialize());
+require("./middlewares/passport")(passport);
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/passport', require('./routes/passport'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
